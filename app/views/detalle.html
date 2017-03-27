@@ -1,1 +1,79 @@
-<p>This is the detalle view.</p>
+<h1>Detalles Pokemon</h1>
+<div ng-repeat="pokemon in datos">
+  <table class="table table-bordered">
+    <tbody>
+      <tr class="active">
+        <td align="center" style="width:60%">
+          <img ng-src="{{ pokemon.sprites.front_default }}" alt="" >
+          <p><strong><h2>{{ pokemon.name }}</h2></strong></p>
+          <div ng-repeat="especie in especies">
+            <p align="justify">{{ especie.flavor_text_entries[3].flavor_text }}</p>
+            <table class="table table-bordered" style="width:300px">
+              <tr class="active"><td><strong>Datos Adicionales</strong></td></tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li><p><strong>Habitad: </strong>{{ especie.habitat.name }}</p></li>
+                    <li><p><strong>Color: </strong>{{ especie.color.name }}</p></li>
+                    <li><p><strong>Generación: </strong>{{ especie.generation.name }}</p></li>
+                    <li><p><strong>Evoluciona desde: </strong>{{ especie.evolves_from_species.name }}</p></li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <table class="table table-bordered">
+            <tr class="success">
+              <td><strong>Habilidades</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="abilitie in pokemon.abilities">
+                  <li>{{ abilitie.ability.name }}</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-bordered">
+            <tr class="success">
+              <td><strong>Tipos</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="types in pokemon.types">
+                  <li>{{ types.type.name }}</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-bordered">
+            <tr class="success">
+              <td><strong>Especie</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>{{ pokemon.species.name }}</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-bordered">
+            <tr class="success">
+              <td><strong>Evoluciones</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <ul ng-repeat="evolucion in evoluciones">
+                  <li><a href="#/detalle/{{ evolucion.id }}">{{ evolucion.name }}</a></li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -28,8 +28,28 @@ angular.module('pokedexApp')
       return deferred.promise;
     }
 
+    function especiePokemon(id){
+      var deferred = $q.defer();
+      $http.get(Config.URL + Config.POKEMON_SPECIE + id)
+       .then(function(response){
+        deferred.resolve(response);
+      });
+      return deferred.promise;
+    }
+
+    function evolucionPokemon(id){
+      var deferred = $q.defer();
+      $http.get(Config.URL + Config.POKEMON_EVOLUTION + id)
+       .then(function(response){
+        deferred.resolve(response);
+      });
+      return deferred.promise;
+    }
+
     return{
       listado: listado,
-      detallePokemon: detallePokemon
+      detallePokemon: detallePokemon,
+      especiePokemon: especiePokemon,
+      evolucionPokemon:evolucionPokemon
     }
   });

@@ -6,19 +6,19 @@
   </tr>
   <tr>
     <td>Nombre</td>
-    <td><input type="text" style="width:300px" ng-model="buscar.name"></td>
+    <td><input type="text" class="form-control" style="width:300px" ng-model="buscar.name"></td>
   </tr>
   <tr>
     <td>Tipo</td>
     <td>
-      <select name="tipo" style="width:300px" ng-model="buscar.type" ng-options="type.url.split('/')[6] as type.name for type in types" ng-change="listadoTipos(buscar.type)">
+      <select id="tipo" name="tipo" class="form-control" style="width:300px" ng-model="buscar.type" ng-options="type.url.split('/')[6] as type.name for type in types" ng-change="listadoTipos(buscar.type)">
         <option value="0">Seleccione Tipo</option>
       </select>
     </td>
   </tr>
 </table>
 <br>
-<div class="row">
+<div class="row" id="listPokemons">
   <div class="col-xs-6 col-md-4" ng-repeat="pokemon in pokemons | filter:buscar">
     <table class="table table-bordered">
       <tbody>
