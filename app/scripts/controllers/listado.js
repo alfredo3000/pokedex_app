@@ -8,12 +8,13 @@
  * Controller of the pokedexApp
  */
 angular.module('pokedexApp')
-  .controller('ListadoCtrl', function ($scope, $window, PokemonService, TypeService) {
-    
+  .controller('ListadoCtrl', function ($scope, $window, PokemonService, TypeService, ngProgressFactory) {
+    $scope.progressbar = ngProgressFactory.createInstance();
+    $scope.progressbar.start();
     PokemonService.listado()
     .then(function(response){
-      $scope.pokemons = response.data.results;
-      console.log($scope.pokemons);
+      $scope.pokemons = response.data.results;      
+      $scope.progressbar.complete();
     });
 
     TypeService.listado()

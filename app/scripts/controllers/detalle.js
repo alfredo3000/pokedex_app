@@ -8,7 +8,10 @@
  * Controller of the pokedexApp
  */
 angular.module('pokedexApp')
-  .controller('DetalleCtrl', function ($scope, PokemonService) {
+  .controller('DetalleCtrl', function ($scope, PokemonService, ngProgressFactory) {
+    $scope.progressbar = ngProgressFactory.createInstance();
+    $scope.progressbar.start();
+
     PokemonService.detallePokemon()
     .then(function(response){
         $scope.datos = {
@@ -45,7 +48,7 @@ angular.module('pokedexApp')
                 };
                 recursivo(listaEvolucion);
                 $scope.evoluciones = $scope.arrayEvolucion;
-                console.log($scope.evoluciones);
+                $scope.progressbar.complete();                
             });
 
         });

@@ -12,7 +12,8 @@ angular
   .module('pokedexApp', [
     'ngAnimate',
     'ngCookies',
-    'ngRoute'
+    'ngRoute',
+    'ngProgress'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
