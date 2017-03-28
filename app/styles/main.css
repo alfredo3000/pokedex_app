@@ -30,11 +30,13 @@ body {
   padding-bottom: 19px;
 }
 
-img {    
+img {
     /* display: block; */
     padding: 0;
     margin: 0;
 }
+
+.waiting { cursor: wait; }
 
 /* Custom page footer */
 .footer {

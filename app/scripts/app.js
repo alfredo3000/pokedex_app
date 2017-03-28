@@ -36,6 +36,11 @@ angular
         controller: 'DetalleCtrl',
         controllerAs: 'detalle'
       })
+      .when('/listadotipos/:id', {
+        templateUrl: 'views/listadotipos.html',
+        controller: 'ListadotiposCtrl',
+        controllerAs: 'listadoTipos'
+      })
       .otherwise({
         redirectTo: '/'
       });

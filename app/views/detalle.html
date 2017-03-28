@@ -15,6 +15,7 @@
                   <ul>
                     <li><p><strong>Habitad: </strong>{{ especie.habitat.name }}</p></li>
                     <li><p><strong>Color: </strong>{{ especie.color.name }}</p></li>
+                    <li><p><strong>Género: </strong>{{ especie.genera[2].genus }}</p></li>
                     <li><p><strong>Generación: </strong>{{ especie.generation.name }}</p></li>
                     <li><p><strong>Evoluciona desde: </strong>{{ especie.evolves_from_species.name }}</p></li>
                   </ul>
@@ -43,7 +44,7 @@
             <tr>
               <td>
                 <ul ng-repeat="types in pokemon.types">
-                  <li>{{ types.type.name }}</li>
+                  <li><a href="#/listadotipos/{{ types.type.url.split('/')[6] }}">{{ types.type.name }}</a></li>
                 </ul>
               </td>
             </tr>

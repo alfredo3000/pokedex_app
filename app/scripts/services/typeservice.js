@@ -8,7 +8,7 @@
  * Service in the pokedexApp.
  */
 angular.module('pokedexApp')
-  .service('TypeService', function (Config, $q, $http) {
+  .service('TypeService', function (Config, $q, $http, $routeParams) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     function listado(){
       var deferred = $q.defer();
@@ -19,9 +19,9 @@ angular.module('pokedexApp')
       return deferred.promise;
     }
 
-    function listadoTipos(id){
+    function listadoTipos(){
       var deferred = $q.defer();
-      $http.get(Config.URL + Config.POKEMON_TYPES + id)
+      $http.get(Config.URL + Config.POKEMON_TYPES + $routeParams.id)
        .then(function(response){
         deferred.resolve(response);
       });

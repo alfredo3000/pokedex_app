@@ -10,7 +10,7 @@
 angular.module('pokedexApp')
   .service('PokemonService', function (Config, $q, $http, $routeParams) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    function listado(){
+    function listado(id){
       var deferred = $q.defer();
       $http.get(Config.URL + Config.POKEMON_LIST)
        .then(function(response){
