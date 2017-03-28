@@ -1,15 +1,22 @@
-<h1>Detalles Pokemon</h1>
+<h1>Detalle Pokemon</h1>
 <div ng-repeat="pokemon in datos">
   <table class="table table-bordered">
     <tbody>
       <tr class="active">
-        <td align="center" style="width:60%">
+        <td align="center" style="width:60%; background-image:url(images/background_lista.png); background-repeat: no-repeat;">
           <img ng-src="{{ pokemon.sprites.front_default }}" alt="" >
           <p><strong><h2>{{ pokemon.name }}</h2></strong></p>
+          <table class="table" style=" width:300px; background-color:transparent">
+            <tr align="center">
+              <td><strong>{{ pokemon.base_experience}}</strong><br>Experiencia</td>
+              <td><strong>{{ pokemon.height / 10 | number:2}} mts.</strong><br>Altura</td>
+              <td><strong>{{ pokemon.weight / 10 | number:2}} kg.</strong><br>Peso</td>
+            </tr>
+          </table>
           <div ng-repeat="especie in especies">
-            <p align="justify">{{ especie.flavor_text_entries[3].flavor_text }}</p>
-            <table class="table table-bordered" style="width:300px">
-              <tr class="active"><td><strong>Datos Adicionales</strong></td></tr>
+            <table class="table table-bordered">
+              <tr><td><p align="justify">{{ especie.flavor_text_entries[3].flavor_text }}</p></td></tr>
+              <tr class="info"><td><strong>Datos Adicionales</strong></td></tr>
               <tr>
                 <td>
                   <ul>
@@ -26,7 +33,7 @@
         </td>
         <td>
           <table class="table table-bordered">
-            <tr class="success">
+            <tr class="info">
               <td><strong>Habilidades</strong></td>
             </tr>
             <tr>
@@ -38,7 +45,7 @@
             </tr>
           </table>
           <table class="table table-bordered">
-            <tr class="success">
+            <tr class="info">
               <td><strong>Tipos</strong></td>
             </tr>
             <tr>
@@ -50,7 +57,7 @@
             </tr>
           </table>
           <table class="table table-bordered">
-            <tr class="success">
+            <tr class="info">
               <td><strong>Especie</strong></td>
             </tr>
             <tr>
@@ -62,14 +69,18 @@
             </tr>
           </table>
           <table class="table table-bordered">
-            <tr class="success">
+            <tr class="info">
               <td><strong>Evoluciones</strong></td>
             </tr>
             <tr>
               <td>
-                <ul ng-repeat="evolucion in evoluciones">
-                  <li><a href="#/detalle/{{ evolucion.id }}">{{ evolucion.name }}</a></li>
-                </ul>
+                <table class="table table-bordered">
+                  <tr>
+                    <td class="success" ng-repeat="evolucion in evoluciones">
+                      <a href="#/detalle/{{ evolucion.id }}">{{ evolucion.name }}</a>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
           </table>

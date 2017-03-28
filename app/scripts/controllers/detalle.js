@@ -22,10 +22,14 @@ angular.module('pokedexApp')
               'results': response.data,
             }
             var id = $scope.especies.results.evolution_chain.url.split('/')[6];
-
             PokemonService.evolucionPokemon(id)
               .then(function(response){
                 $scope.arrayEvolucion = [];
+                $scope.arrayEvolucion.push({
+                      'id': response.data.chain.species.url.split('/')[6],
+                      'url': response.data.chain.species.url,
+                      'name': response.data.chain.species.name
+                });
                 var listaEvolucion = response.data.chain.evolves_to;
                 function recursivo(listaEvolucion){
                     angular.forEach(listaEvolucion, function(item){
